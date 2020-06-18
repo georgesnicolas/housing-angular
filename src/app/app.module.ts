@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PropertyCardComponent } from './property/property-card/property-card.component';
+import { PropertyListComponent } from './property/property-list/property-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PropertyCardComponent,
+    PropertyListComponent
   ],
   imports: [
     BrowserModule,
