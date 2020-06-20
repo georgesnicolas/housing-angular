@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 
 const appRoutes:Routes = [
   { path:'',component: PropertyListComponent },
-  {path: 'rent-property', component: PropertyListComponent},
+  { path: 'rent-property', component: PropertyListComponent },
   { path:'add-property',component: AddPropertyComponent },
   { path:'property-detail/:id',component: PropertyDetailComponent },
   { path:'**',component: PropertyListComponent }
@@ -33,6 +34,7 @@ const appRoutes:Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
