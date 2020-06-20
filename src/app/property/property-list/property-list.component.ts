@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HousingService } from 'src/app/services/housing.service';
+import { IProperty } from '../../models/IProperty.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-property-list',
@@ -6,91 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-list.component.scss']
 })
 export class PropertyListComponent implements OnInit {
-  
-  properties: Array<any> = [
-    {
-      "Id":1,
-      "Name":"Birla House",
-      "Type":"House",
-      "Price":12000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    },
-    {
-      "Id":2,
-      "Name":"Barila Maakarouni",
-      "Type":"House",
-      "Price":1000000
-    }
-]
+  SellRent = 1;
+  properties: IProperty[];
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private housingService:HousingService) { }
 
   ngOnInit(): void {
+    if(this.route.snapshot.url.toString()){
+      this.SellRent = 2;
+    }
+    this.housingService.getProperties(this.SellRent).subscribe(
+      data => {
+        this.properties = data;
+        // console.error(this.route.snapshot.url.toString());
+      },error => {
+        console.error(error);
+      }
+    )
   }
-
 }

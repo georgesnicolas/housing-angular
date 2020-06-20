@@ -1,5 +1,7 @@
 <div class="row justify-content-center">
-    <div *ngFor="let item of properties;" class="shadow-lg col-sm-4 p-3">
+    <div *ngFor="let item of properties;" class="col-sm-4">
+      <div class="shadow-lg p-3 mb-4">
         <app-property-card [property]="item"></app-property-card>
+      </div>
     </div>
 </div>
