@@ -16,6 +16,7 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
+import { TesttestComponent } from './testtest/testtest.component';
 
 const appRoutes:Routes = [
   { path:'',component: PropertyListComponent },
@@ -36,7 +37,8 @@ const appRoutes:Routes = [
     AddPropertyComponent,
     PropertyDetailComponent,
     UserLoginComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    TesttestComponent
   ],
   imports: [
     BrowserModule,
